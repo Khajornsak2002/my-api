@@ -7,4 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::apiResource('/users', UserController::class);
+Route::apiResource('/backoffice-api/Get-all-users', UserController::class);
+
+

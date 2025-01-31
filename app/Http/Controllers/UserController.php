@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -32,7 +33,8 @@ class UserController extends Controller
 
     public function show($id)
     {
-        return response()->json(User::findOrFail($id));
+        $user = User::findOrFail($id);
+        return new UserResource($user);
     }
 
     public function update(Request $request, $id)
